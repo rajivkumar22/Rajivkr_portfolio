@@ -29,11 +29,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const msg = {
-        to,
-        from: from || "kumarrajiv12945@gmail.com", // Use verified sender
-        subject,
-        text,
-        html,
+        to: "kumarrajiv12945@gmail.com", // Your email to receive messages
+        from: "kumarrajiv12945@gmail.com", // Use verified sender email
+        replyTo: from, // Set the sender's email as reply-to
+        subject: `Portfolio Contact: ${subject}`,
+        text: `From: ${from}\n\n${text}`,
+        html: `
+          <h3>New Portfolio Contact Message</h3>
+          <p><strong>From:</strong> ${from}</p>
+          <p><strong>Subject:</strong> ${subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${html || text}</p>
+        `,
       };
 
       await sgMail.send(msg);
