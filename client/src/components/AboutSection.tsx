@@ -1,8 +1,21 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfileImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -43,16 +56,40 @@ export default function AboutSection() {
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
-          {/* Profile Image - Responsive for future photo */}
+          {/* Profile Image with Upload Functionality */}
           <motion.div className="flex justify-center lg:justify-start" variants={itemVariants}>
             <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Placeholder for future image - fully responsive */}
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center border border-primary/30 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20">
-                <div className="text-center">
-                  <i className="fas fa-user text-5xl md:text-6xl text-primary/60 mb-4" />
-                  <p className="text-sm text-muted-foreground font-medium">Photo Coming Soon</p>
+              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center border border-primary/30 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 overflow-hidden relative group">
+                {profileImage ? (
+                  <img 
+                    src={profileImage} 
+                    alt="Rajiv Kumar" 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-center">
+                    <i className="fas fa-user text-5xl md:text-6xl text-primary/60 mb-4" />
+                    <p className="text-sm text-muted-foreground font-medium">Click to upload photo</p>
+                  </div>
+                )}
+                
+                {/* Upload overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <i className="fas fa-camera text-2xl mb-2" />
+                    <p className="text-sm font-medium">Upload Photo</p>
+                  </div>
                 </div>
+                
+                {/* Hidden file input */}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                />
               </div>
+              
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-pulse"></div>
               <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/30 rounded-full animate-pulse delay-1000"></div>
@@ -62,18 +99,16 @@ export default function AboutSection() {
           {/* About Content */}
           <motion.div className="space-y-8" variants={itemVariants}>
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-primary">
                 Computer Science Student
               </h3>
-              <p className="text-lg md:text-xl leading-relaxed mb-6 text-foreground/90 font-medium">
-                I'm a <span className="text-primary font-semibold">driven and passionate</span> 3rd-year Computer Science 
-                student at <span className="text-secondary font-semibold">Chandigarh University</span> with a proficiency in coding, 
+              <p className="text-lg leading-relaxed mb-6 text-muted-foreground">
+                3rd-year Computer Science student at Chandigarh University with expertise in coding, 
                 problem-solving, and building innovative software solutions.
               </p>
-              <p className="text-lg md:text-xl leading-relaxed mb-8 text-foreground/90 font-medium">
-                I'm actively honing my skills through <span className="text-primary font-semibold">hands-on projects</span> and 
-                eager to dive into real-world challenges. My areas of interest 
-                include <span className="text-secondary font-semibold">Web Development</span>, <span className="text-primary font-semibold">Artificial Intelligence</span>, and <span className="text-secondary font-semibold">IoT</span>.
+              <p className="text-lg leading-relaxed mb-8 text-muted-foreground">
+                Passionate about creating impactful projects and exploring emerging technologies. 
+                My focus areas include Web Development, Artificial Intelligence, and IoT.
               </p>
             </div>
 

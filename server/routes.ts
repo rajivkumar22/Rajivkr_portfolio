@@ -30,8 +30,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Use a verified sender domain or the same email for from field
       const msg = {
-        to: "kumarrajiv12945@gmail.com",
-        from: "kumarrajiv12945@gmail.com", // Must be verified in SendGrid
+        to: "kumarrajiv2945@gmail.com",
+        from: "kumarrajiv2945@gmail.com", // Must be verified in SendGrid
         replyTo: from,
         subject: `Portfolio Contact: ${subject}`,
         text: `New message from your portfolio website:\n\nFrom: ${from}\nSubject: ${subject}\n\nMessage:\n${text}`,
