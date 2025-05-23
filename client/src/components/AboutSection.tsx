@@ -43,26 +43,37 @@ export default function AboutSection() {
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
-          {/* Profile Image */}
-          <motion.div className="flex justify-center" variants={itemVariants}>
-            <div className="w-80 h-80 bg-muted rounded-full flex items-center justify-center">
-              <i className="fas fa-user text-6xl text-muted-foreground" />
+          {/* Profile Image - Responsive for future photo */}
+          <motion.div className="flex justify-center lg:justify-start" variants={itemVariants}>
+            <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* Placeholder for future image - fully responsive */}
+              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center border border-primary/30 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20">
+                <div className="text-center">
+                  <i className="fas fa-user text-5xl md:text-6xl text-primary/60 mb-4" />
+                  <p className="text-sm text-muted-foreground font-medium">Photo Coming Soon</p>
+                </div>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/30 rounded-full animate-pulse delay-1000"></div>
             </div>
           </motion.div>
 
           {/* About Content */}
           <motion.div className="space-y-8" variants={itemVariants}>
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-secondary">Computer Science Undergraduate</h3>
-              <p className="text-lg leading-relaxed mb-6 text-muted-foreground">
-                I'm a driven and passionate 3rd-year Computer Science 
-                student at Chandigarh University with a proficiency in coding, 
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text">
+                Computer Science Student
+              </h3>
+              <p className="text-lg md:text-xl leading-relaxed mb-6 text-foreground/90 font-medium">
+                I'm a <span className="text-primary font-semibold">driven and passionate</span> 3rd-year Computer Science 
+                student at <span className="text-secondary font-semibold">Chandigarh University</span> with a proficiency in coding, 
                 problem-solving, and building innovative software solutions.
               </p>
-              <p className="text-lg leading-relaxed mb-8 text-muted-foreground">
-                I'm actively honing my skills through hands-on projects and 
+              <p className="text-lg md:text-xl leading-relaxed mb-8 text-foreground/90 font-medium">
+                I'm actively honing my skills through <span className="text-primary font-semibold">hands-on projects</span> and 
                 eager to dive into real-world challenges. My areas of interest 
-                include Web Development, Artificial Intelligence, and IoT.
+                include <span className="text-secondary font-semibold">Web Development</span>, <span className="text-primary font-semibold">Artificial Intelligence</span>, and <span className="text-secondary font-semibold">IoT</span>.
               </p>
             </div>
 

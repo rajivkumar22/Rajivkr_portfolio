@@ -6,7 +6,7 @@ const projects = [
   {
     title: "Sports Community Platform",
     description: "A comprehensive MERN stack application for sports communities to connect, organize events, and share experiences with integrated user management and real-time features.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     tags: ["MongoDB", "Express", "React", "Node.js"],
     githubLink: "https://github.com/rajivkumar22/sportscommunity",
     demoLink: "https://sportscommunity.vercel.app/",

@@ -3,6 +3,11 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const skills = [
   {
+    name: "C",
+    icon: "fas fa-code",
+    color: "text-purple-500"
+  },
+  {
     name: "C++",
     icon: "fas fa-code",
     color: "text-blue-500"
