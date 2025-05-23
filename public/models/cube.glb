@@ -1,0 +1,3 @@
+# This would be a binary GLTF file - placeholder for 3D model
+# In a real implementation, this would be an actual 3D model file
+# For now, the Scene3D component creates a simple cube programmatically
