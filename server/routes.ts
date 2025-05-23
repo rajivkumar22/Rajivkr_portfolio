@@ -28,24 +28,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
+      // Use a verified sender domain or the same email for from field
       const msg = {
-        to: "kumarrajiv12945@gmail.com", // Your email to receive messages
-        from: "kumarrajiv12945@gmail.com", // Use verified sender email
-        replyTo: from, // Set the sender's email as reply-to
+        to: "kumarrajiv12945@gmail.com",
+        from: "kumarrajiv12945@gmail.com", // Must be verified in SendGrid
+        replyTo: from,
         subject: `Portfolio Contact: ${subject}`,
-        text: `From: ${from}\n\n${text}`,
+        text: `New message from your portfolio website:\n\nFrom: ${from}\nSubject: ${subject}\n\nMessage:\n${text}`,
         html: `
-          <h3>New Portfolio Contact Message</h3>
-          <p><strong>From:</strong> ${from}</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <p><strong>Message:</strong></p>
-          <p>${html || text}</p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #8b5cf6;">New Portfolio Contact Message</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <p><strong>From:</strong> ${from}</p>
+              <p><strong>Subject:</strong> ${subject}</p>
+            </div>
+            <div style="background: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
+              <h3>Message:</h3>
+              <p style="line-height: 1.6;">${html || text}</p>
+            </div>
+            <p style="color: #6b7280; font-size: 14px; margin-top: 20px;">
+              This message was sent from your portfolio website contact form.
+            </p>
+          </div>
         `,
       };
 
-      await sgMail.send(msg);
+      const result = await sgMail.send(msg);
+      console.log('Email sent successfully:', result[0].statusCode);
 
-      res.json({ success: true });
+      res.json({ success: true, messageId: result[0].headers['x-message-id'] });
     } catch (error) {
       console.error("SendGrid error:", error);
       res.status(500).json({ 
