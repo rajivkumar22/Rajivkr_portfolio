@@ -1,0 +1,94 @@
+Build me a high-quality, interactive, and responsive personal portfolio website using React with the following advanced features, tools, and best practices integrated."
+
+👤 Personal Info:
+Name: Rajiv Kumar
+
+Title Summary (Home Section):
+
+A Computer Science undergraduate at Chandigarh University with a strong interest in Coding, Artificial Intelligence, and Web Development. Known for a learning attitude and problem-solving mindset.
+
+🔧 Tools and Frameworks to Use:
+1. Frontend Frameworks:
+React with functional components
+
+React Router for navigation
+
+React Three Fiber for integrating 3D models/scenes
+
+Framer Motion for smooth transitions and scroll animations
+
+2. 3D Integration:
+Use Three.js via React Three Fiber for interactive 3D elements
+
+Allow sections like landing or project thumbnails to have 3D models or interactive elements
+
+Use GLTF/GLB models, optimized and lazy-loaded
+
+Add lighting, shadows, and camera controls for immersive visuals
+
+3. Design Enhancements:
+Parallax Scrolling using JavaScript or libraries like react-scroll-parallax
+
+CSS Depth Effects: box-shadow, transform: rotateX/Y, perspective, filter: drop-shadow()
+
+High-quality icons using SVG
+
+Dark Mode Toggle using CSS variables or Context API
+
+4. UI/UX Principles:
+Impeccable typography with Google Fonts (heading + body pairing)
+
+Thoughtful color palette (harmonious, accessible, consistent)
+
+Clear visual hierarchy
+
+Effective whitespace usage
+
+Responsive design (Mobile-first)
+
+5. Sections to Include:
+Home – 3D background or animated element with intro text
+
+About Me – Professional summary + personal philosophy
+
+Skills – Icons or animated cards for:
+
+C++, HTML, CSS, JavaScript, React
+
+Tools: GitHub, MongoDB, Postman
+
+Projects – Each with:
+
+Name, Description, Technologies, GitHub Link
+
+Interactive cards or 3D previews
+
+Projects:
+
+Travel Website: From Clicks to Journey
+
+IoT-based Air Pollution Monitor
+
+Bookshop Inventory System
+
+Achievements & Certifications
+
+List solved 100+ LeetCode and Striver’s A2Z problems
+
+Include badge links or cards for:
+
+NPTEL: IoT (91%), Computer Architecture
+
+Coursera: Databases
+
+Metacrafters: Blockchain
+
+Contact Me
+
+Form with sendgrip integration (no backend)
+
+Fields: Name, Email, Message
+
+Confirmation message on send
+
+Social Links: GitHub, LinkedIn, LeetCode
