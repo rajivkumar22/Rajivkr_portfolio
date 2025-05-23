@@ -96,7 +96,7 @@ export default function HeroSection() {
               <i className="fab fa-github text-xl" />
             </a>
             <a 
-              href="https://leetcode.com/rajivkumar12945" 
+              href="https://leetcode.com/u/kumarrajiv12945/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-12 h-12 bg-muted hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all hover:scale-110 text-muted-foreground hover:text-white"

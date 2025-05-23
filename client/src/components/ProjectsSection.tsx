@@ -6,29 +6,32 @@ const projects = [
   {
     title: "Sports Community Platform",
     description: "A comprehensive MERN stack application for sports communities to connect, organize events, and share experiences with integrated user management and real-time features.",
-    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     tags: ["MongoDB", "Express", "React", "Node.js"],
+    githubLink: "https://github.com/rajivkumar22/sportscommunity",
+    demoLink: "https://sportscommunity.vercel.app/",
     hasGithub: true,
     hasDemo: true
   },
   {
     title: "Travel Website: From Clicks to Journey",
     description: "Researched AI-enhanced travel recommendations and developed personalized itinerary planning based on user preferences and real-time data.",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     tags: ["React", "UX Research", "AI Integration"],
+    githubLink: "https://github.com/rajivkumar22/Travel-Website-From-Clicks-to-Journey",
     hasGithub: true
   },
   {
     title: "IoT Air Quality Monitoring System",
     description: "Developed an IoT solution to monitor air quality with real-time data displayed on a web interface, using MQ135 sensor and ESP8266.",
-    image: "https://images.unsplash.com/photo-1581092331821-4f4d1b9b793a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     tags: ["Arduino", "JavaScript", "ESP8266"],
     hasGithub: true
   },
   {
     title: "Bookshop Inventory Management",
     description: "Built a web application for managing bookshop inventory with features to add, delete, and check stock of books with a responsive user interface.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
     tags: ["HTML", "CSS", "JavaScript"],
     hasGithub: true,
     hasDemo: true
@@ -119,16 +122,26 @@ export default function ProjectsSection() {
                     
                     <div className="flex gap-3">
                       {project.hasGithub && (
-                        <button className="flex items-center gap-2 bg-muted hover:bg-primary hover:text-primary-foreground text-foreground px-4 py-2 rounded-lg transition-all text-sm font-medium">
+                        <a 
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-muted hover:bg-primary hover:text-primary-foreground text-foreground px-4 py-2 rounded-lg transition-all text-sm font-medium hover:scale-105"
+                        >
                           <i className="fab fa-github" />
                           GitHub
-                        </button>
+                        </a>
                       )}
                       {project.hasDemo && (
-                        <button className="flex items-center gap-2 bg-muted hover:bg-primary hover:text-primary-foreground text-foreground px-4 py-2 rounded-lg transition-all text-sm font-medium">
+                        <a 
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-muted hover:bg-primary hover:text-primary-foreground text-foreground px-4 py-2 rounded-lg transition-all text-sm font-medium hover:scale-105"
+                        >
                           <i className="fas fa-external-link-alt" />
                           Live Demo
-                        </button>
+                        </a>
                       )}
                     </div>
                   </div>
