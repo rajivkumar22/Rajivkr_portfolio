@@ -3,7 +3,9 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
-    "server/index.ts": {}
+    "server/index.ts": {
+      "runtime": "nodejs18.x"
+    }
   },
   "rewrites": [
     {
@@ -33,8 +35,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "SENDGRID_API_KEY": "@sendgrid_api_key"
-  }
+  ]
 }
