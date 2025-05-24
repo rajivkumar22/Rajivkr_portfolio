@@ -37,6 +37,6 @@
     }
   ],
   "env": {
-    "SENDGRID_API_KEY": "@sendgrid_api_key"
+    "SENDGRID_API_KEY": "SENDGRID_API_KEY"
   }
 }
